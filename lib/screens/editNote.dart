@@ -37,8 +37,28 @@ class _EditNoteState extends State<EditNote> {
     Get.back();
   }
 
-  deleteNote(){
-
+  deleteNote()async{
+    // showDialog(
+    //     context: context,
+    //     builder: (context){
+    //       return AlertDialog(
+    //         title: Text('Delete Note?'),
+    //         content: Text('Note will be deleted permanently'),
+    //         actions: [],
+    //       );
+          // return ActionAlert(
+          //     title: 'Delete Note?',
+          //     content: 'Note will be deleted permanently',
+          //     onTap: () async {
+          //       await FirebaseFirestore.instance.collection("notes").doc(noteID).delete();
+          //       Get.back();
+          //     },
+          //     actionText: 'Delete'
+          // );
+    //     }
+    // );
+    await FirebaseFirestore.instance.collection("notes").doc(noteID).delete();
+    Get.back();
   }
 
   @override
