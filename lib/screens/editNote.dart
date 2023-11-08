@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../components/detailsField.dart';
+import '../components/titleField.dart';
+
 class EditNote extends StatefulWidget {
   const EditNote({super.key});
 
@@ -8,6 +11,10 @@ class EditNote extends StatefulWidget {
 }
 
 class _EditNoteState extends State<EditNote> {
+
+  final titleController = TextEditingController();
+  final detailsController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).colorScheme;
@@ -17,6 +24,18 @@ class _EditNoteState extends State<EditNote> {
         centerTitle: true,
         title: Text('Time', style: TextStyle(color: theme.onBackground)),
         iconTheme: IconThemeData(color: theme.onBackground),
+      ),
+
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              TitleField(controller: titleController, focus: false),
+              DetailsField(controller: detailsController)
+            ],
+          ),
+        ),
       ),
 
       floatingActionButton: FloatingActionButton.extended(
