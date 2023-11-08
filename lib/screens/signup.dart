@@ -44,11 +44,11 @@ class _SignUpState extends State<SignUp> {
           email: emailController.text,
           password: passwordController.text
       );
-      addUserDetails(
-          fnameController.text,
-          emailController.text,
-          int.parse(phoneController.text)
-      );
+      await FirebaseFirestore.instance.collection("users").doc().set({
+        'name':fnameController.text,
+        'email':emailController.text,
+        'phone':int.parse(phoneController.text)
+      });
       Get.back();
     }
     on FirebaseAuthException catch(e){
@@ -62,14 +62,6 @@ class _SignUpState extends State<SignUp> {
     }
   }
 
-  Future addUserDetails(String name,String email,int phone) async {
-    await FirebaseFirestore.instance.collection("users").add({
-      'name':name,
-      'email':email,
-      'phone':phone
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     final theme=Theme.of(context).colorScheme;
@@ -78,9 +70,9 @@ class _SignUpState extends State<SignUp> {
         backgroundColor: theme.primaryContainer,
         title: Text('Signup',
           style: TextStyle(
-            color: theme.onPrimaryContainer,
-            fontWeight: FontWeight.w600,
-            fontSize: 24
+              color: theme.onPrimaryContainer,
+              fontWeight: FontWeight.w600,
+              fontSize: 24
           )
         ),
         centerTitle: true,

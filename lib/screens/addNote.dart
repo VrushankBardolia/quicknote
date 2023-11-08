@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quicknote/components/detailsField.dart';
@@ -14,6 +16,24 @@ class _AddNoteState extends State<AddNote> {
 
   final titleController = TextEditingController();
   final detailsController = TextEditingController();
+
+  User? userId=FirebaseAuth.instance.currentUser;
+
+  addNote()async{
+    try{
+      await FirebaseFirestore.instance.collection("notes").doc().set({
+        "title":titleController.text,
+        "details":detailsController.text,
+        "createdAt":DateTime.now(),
+        "uid":userId?.uid
+      });
+      print('Note Added successfully!');
+      Get.back();
+    }catch(e){
+      print('ERROR>>>>>>>>>>>>$e');
+    }
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +65,7 @@ class _AddNoteState extends State<AddNote> {
       ),
 
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: (){},
+        onPressed:addNote,
         label: const Text('Save Note'),
         icon: const Icon(Icons.save_rounded),
         elevation: 0,
