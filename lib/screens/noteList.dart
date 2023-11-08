@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quicknote/components/noteTile.dart';
 import 'package:quicknote/screens/addNote.dart';
 
 class NoteList extends StatefulWidget {
@@ -67,15 +68,20 @@ class _NoteListState extends State<NoteList> {
                   DateTime dateTime=t.toDate();
                     return Padding(
                       padding: const EdgeInsets.symmetric(vertical: 4),
-                      child: ListTile(
-                        title: Text(note['title']),
-                        subtitle: Text("${dateTime.day}-${dateTime.month}-${dateTime.year}  ${dateTime.hour}:${dateTime.minute}"),
-                        tileColor: theme.secondaryContainer,
-                        textColor: theme.onSecondaryContainer,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12)
-                        ),
+                      child: NoteTile(
+                          title: note['title'],
+                          date: "${dateTime.day}-${dateTime.month}-${dateTime.year}  ${dateTime.hour}:${dateTime.minute}",
+                          onTap: (){}
                       ),
+                      // child: ListTile(
+                      //   title: Text(note['title']),
+                      //   subtitle: Text("${dateTime.day}-${dateTime.month}-${dateTime.year}  ${dateTime.hour}:${dateTime.minute}"),
+                      //   tileColor: theme.secondaryContainer,
+                      //   textColor: theme.onSecondaryContainer,
+                      //   shape: RoundedRectangleBorder(
+                      //     borderRadius: BorderRadius.circular(12)
+                      //   ),
+                      // ),
                     );
                   }
               );
