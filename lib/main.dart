@@ -23,12 +23,12 @@ class MyApp extends StatelessWidget {
       title: 'QuickNote',
       theme: ThemeData(
         colorScheme: lightColorScheme,
-        fontFamily: GoogleFonts.oxygen().fontFamily,
+        fontFamily: GoogleFonts.mukta().fontFamily,
         useMaterial3: true,
       ),
       darkTheme: ThemeData(
         colorScheme: darkColorScheme,
-        fontFamily: GoogleFonts.oxygen().fontFamily,
+        fontFamily: GoogleFonts.mukta().fontFamily,
         useMaterial3: true
       ),
       themeMode: ThemeMode.system,

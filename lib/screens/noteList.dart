@@ -42,7 +42,7 @@ class _NoteListState extends State<NoteList> {
       ),
 
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: (){Get.to(const AddNote());},
+        onPressed: (){Get.to(() =>const AddNote());},
         label: const Text('Add Note', style: TextStyle(fontSize: 16)),
         icon: const Icon(Icons.add_rounded),
         elevation: 0,
@@ -74,7 +74,11 @@ class _NoteListState extends State<NoteList> {
                       child: NoteTile(
                           title: note['title'],
                           date: "${dateTime.day}/${dateTime.month}/${dateTime.year}  ${dateTime.hour}:${dateTime.minute}",
-                          onTap: (){Get.to(EditNote());}
+                          onTap: (){
+                            Get.to(() => const EditNote(),
+                              arguments: {'note':note, 'noteID':note.id}
+                            );
+                          }
                       ),
                     );
                   }

@@ -26,9 +26,9 @@ class TitleField extends StatelessWidget {
             borderSide: const BorderSide(color: Colors.transparent)
         ),
         hintText: 'Title',
-        hintStyle: const TextStyle(fontSize: 20,fontWeight: FontWeight.w600),
+        hintStyle: const TextStyle(fontSize: 22,fontWeight: FontWeight.w600),
       ),
-      style: const TextStyle(fontSize: 20,fontWeight: FontWeight.w600),
+      style: const TextStyle(fontSize: 22,fontWeight: FontWeight.w600),
       textCapitalization: TextCapitalization.words,
       autofocus: focus,
     );

@@ -1,4 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../components/detailsField.dart';
 import '../components/titleField.dart';
@@ -14,6 +17,29 @@ class _EditNoteState extends State<EditNote> {
 
   final titleController = TextEditingController();
   final detailsController = TextEditingController();
+  DateTime dateTime = Get.arguments['note']["createdAt"].toDate();
+  late final String time;
+  late final String noteID = Get.arguments['noteID'];
+
+  @override
+  void initState() {
+    titleController.text = Get.arguments['note']['title'];
+    detailsController.text = Get.arguments['note']['details'];
+    time = "${dateTime.day}/${dateTime.month}/${dateTime.year}  ${dateTime.hour}:${dateTime.minute}";
+    super.initState();
+  }
+
+  editNote()async{
+    await FirebaseFirestore.instance.collection("notes").doc(noteID).update({
+          "title":titleController.text,
+          "details":detailsController.text,
+        });
+    Get.back();
+  }
+
+  deleteNote(){
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +48,8 @@ class _EditNoteState extends State<EditNote> {
       backgroundColor: theme.background,
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Time', style: TextStyle(color: theme.onBackground)),
+        title: Text(time, style: GoogleFonts.jetBrainsMono(color: theme.onBackground,fontSize: 16)),
+        actions: [IconButton(onPressed: deleteNote, icon: const Icon(Icons.delete))],
         iconTheme: IconThemeData(color: theme.onBackground),
       ),
 
@@ -39,7 +66,7 @@ class _EditNoteState extends State<EditNote> {
       ),
 
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: (){},
+        onPressed:editNote,
         label: const Text('Save Note', style: TextStyle(fontSize: 16)),
         icon: const Icon(Icons.save_rounded),
         elevation: 0,

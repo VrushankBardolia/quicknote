@@ -25,9 +25,9 @@ class DetailsField extends StatelessWidget {
             borderSide: const BorderSide(color: Colors.transparent)
         ),
         hintText: 'Details',
-        hintStyle: const TextStyle(fontSize: 16),
+        hintStyle: const TextStyle(fontSize: 18),
       ),
-      style: const TextStyle(fontSize: 16),
+      style: const TextStyle(fontSize: 18),
       textCapitalization: TextCapitalization.sentences,
       keyboardType: TextInputType.multiline,
       maxLines: null,
