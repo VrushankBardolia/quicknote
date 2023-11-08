@@ -68,6 +68,7 @@ class _SignUpState extends State<SignUp> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: theme.primaryContainer,
+        centerTitle: true,
         title: Text('Signup',
           style: TextStyle(
               color: theme.onPrimaryContainer,
@@ -75,7 +76,6 @@ class _SignUpState extends State<SignUp> {
               fontSize: 24
           )
         ),
-        centerTitle: true,
       ),
         body: SingleChildScrollView(
           child: Center(

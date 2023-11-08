@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -11,6 +12,7 @@ class NoteList extends StatefulWidget {
 }
 
 class _NoteListState extends State<NoteList> {
+  User? userId=FirebaseAuth.instance.currentUser;
 
   signOut(){
     FirebaseAuth.instance.signOut();
@@ -41,7 +43,47 @@ class _NoteListState extends State<NoteList> {
         icon: const Icon(Icons.add_rounded),
         elevation: 0,
       ),
-      body: const Center(child: Text('NoteList')),
+
+      body: Padding(
+        padding: const EdgeInsets.all(8),
+        child: StreamBuilder(
+          stream: FirebaseFirestore.instance.collection("notes").where("uid",isEqualTo: userId?.uid).snapshots(),
+          builder: (context, snapshot) {
+            if(snapshot.hasError){
+              return const Center(child: Text('Something went wrong'));
+            }
+            if(snapshot.connectionState==ConnectionState.waiting){
+              return const Center(child: CircularProgressIndicator());
+            }
+            if(snapshot.data!.docs.isEmpty){
+              return const Center(child: Text('Oops!\nNo Notes Available'));
+            }
+            if(snapshot.hasData){
+              return ListView.builder(
+                  itemCount: snapshot.data!.docs.length,
+                  itemBuilder: (context,index){
+                  final note= snapshot.data!.docs[index];
+                  Timestamp t =note["createdAt"];
+                  DateTime dateTime=t.toDate();
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 4),
+                      child: ListTile(
+                        title: Text(note['title']),
+                        subtitle: Text("${dateTime.day}-${dateTime.month}-${dateTime.year}  ${dateTime.hour}:${dateTime.minute}"),
+                        tileColor: theme.secondaryContainer,
+                        textColor: theme.onSecondaryContainer,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12)
+                        ),
+                      ),
+                    );
+                  }
+              );
+            }
+            return Container();
+          },
+        ),
+      )
     );
   }
 }
