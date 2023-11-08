@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:quicknote/components/authField.dart';
 
 import '../components/authButton.dart';
+import '../components/simpleAlert.dart';
 
 class Login extends StatefulWidget {
   final Function() onTap;
@@ -44,9 +45,9 @@ class _LoginState extends State<Login> {
     } on FirebaseAuthException catch(e){
       Get.back();
       if(e.code=="user-not-found"){
-        showAlert('No User Found');
+        const SimpleAlert(title:'No User Found');
       } else if(e.code=="wrong-password"){
-        showAlert('Wrong password');
+        const SimpleAlert(title:'Wrong password');
       }
     }
   }
@@ -55,6 +56,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context).colorScheme;
     return Scaffold(
+        backgroundColor: theme.background,
       appBar: AppBar(
         backgroundColor: theme.primaryContainer,
         title: Text('Login',

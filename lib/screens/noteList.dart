@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quicknote/components/noteTile.dart';
 import 'package:quicknote/screens/addNote.dart';
+import 'package:quicknote/screens/editNote.dart';
 
 class NoteList extends StatefulWidget {
   const NoteList({super.key});
@@ -23,6 +24,7 @@ class _NoteListState extends State<NoteList> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context).colorScheme;
     return Scaffold(
+        backgroundColor: theme.background,
       appBar: AppBar(
         backgroundColor: theme.primaryContainer,
         centerTitle: true,
@@ -38,9 +40,10 @@ class _NoteListState extends State<NoteList> {
         ],
         actionsIconTheme: IconThemeData(color: theme.onPrimaryContainer),
       ),
+
       floatingActionButton: FloatingActionButton.extended(
         onPressed: (){Get.to(const AddNote());},
-        label: const Text('Add Note'),
+        label: const Text('Add Note', style: TextStyle(fontSize: 16)),
         icon: const Icon(Icons.add_rounded),
         elevation: 0,
       ),
@@ -70,18 +73,9 @@ class _NoteListState extends State<NoteList> {
                       padding: const EdgeInsets.symmetric(vertical: 4),
                       child: NoteTile(
                           title: note['title'],
-                          date: "${dateTime.day}-${dateTime.month}-${dateTime.year}  ${dateTime.hour}:${dateTime.minute}",
-                          onTap: (){}
+                          date: "${dateTime.day}/${dateTime.month}/${dateTime.year}  ${dateTime.hour}:${dateTime.minute}",
+                          onTap: (){Get.to(EditNote());}
                       ),
-                      // child: ListTile(
-                      //   title: Text(note['title']),
-                      //   subtitle: Text("${dateTime.day}-${dateTime.month}-${dateTime.year}  ${dateTime.hour}:${dateTime.minute}"),
-                      //   tileColor: theme.secondaryContainer,
-                      //   textColor: theme.onSecondaryContainer,
-                      //   shape: RoundedRectangleBorder(
-                      //     borderRadius: BorderRadius.circular(12)
-                      //   ),
-                      // ),
                     );
                   }
               );

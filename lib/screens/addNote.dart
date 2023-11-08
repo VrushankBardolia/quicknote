@@ -39,6 +39,7 @@ class _AddNoteState extends State<AddNote> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context).colorScheme;
     return Scaffold(
+      backgroundColor: theme.background,
       appBar: AppBar(
         backgroundColor: theme.primaryContainer,
         centerTitle: true,
@@ -66,7 +67,7 @@ class _AddNoteState extends State<AddNote> {
 
       floatingActionButton: FloatingActionButton.extended(
         onPressed:addNote,
-        label: const Text('Save Note'),
+        label: const Text('Save Note', style: TextStyle(fontSize: 16)),
         icon: const Icon(Icons.save_rounded),
         elevation: 0,
       ),
