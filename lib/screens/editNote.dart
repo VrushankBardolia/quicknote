@@ -63,8 +63,7 @@ class _EditNoteState extends State<EditNote> {
         centerTitle: true,
         title: Text(time, style: GoogleFonts.jetBrainsMono(color: theme.onBackground,fontSize: 16)),
         actions: [
-          GestureDetector(onTap:deleteNote,child: const Icon(Icons.delete))
-          // IconButton(onPressed: deleteNote, icon: const Icon(Icons.delete))
+          IconButton(onPressed: deleteNote, icon: const Icon(Icons.delete))
         ],
         iconTheme: IconThemeData(color: theme.onBackground),
       ),
