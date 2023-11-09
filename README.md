@@ -19,9 +19,9 @@ A flutter app made with Firebase which provides Authentication & Cloud Database
 ## Preview
 ![Frame 2](https://github.com/VrushankBardolia/quicknote/assets/102452902/8b28ce55-b03d-4bb8-9b3a-e931f164d7fb)
 ![Frame 3](https://github.com/VrushankBardolia/quicknote/assets/102452902/a1cba7bb-9c2a-49cb-8398-93a369f392ab)
+![Frame 1](https://github.com/VrushankBardolia/quicknote/assets/102452902/a4f2e762-4dd0-477c-af5d-8084430607ec)
 ![Frame 4](https://github.com/VrushankBardolia/quicknote/assets/102452902/612453e0-3d14-4300-9a73-24603eaaa2cf)
 ![Frame 5](https://github.com/VrushankBardolia/quicknote/assets/102452902/7ae9b5db-c76a-4382-9376-fca2cfe21213)
-![Frame 1](https://github.com/VrushankBardolia/quicknote/assets/102452902/a4f2e762-4dd0-477c-af5d-8084430607ec)
 
 ## Dependencies
 - firebase_core
