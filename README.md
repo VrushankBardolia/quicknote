@@ -1,6 +1,6 @@
-# quicknote
+# QuickNote
 
-Notes app with **Firebase**
+Flutter App with Firebase
 
 ## Getting Started
 
