@@ -21,13 +21,25 @@ A flutter app made with Firebase which provides Authentication & Cloud Database
 
 
 ## Getting Started
-1. Clone the repository:
+1. Clone the repository
    
    ```
    git clone https://github.com/VrushankBardolia/quicknote.git
    ```
-2. Navigate to project directory
+   
+2. Navigate to the project directory
 
    ```
    cd QuickNote
+   ```
+   
+3. Install dependencies
+
+   ```
+   flutter pub get
+   ```
+
+4. Run the app
+   ```
+   flutter run
    ```
