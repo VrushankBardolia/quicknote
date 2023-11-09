@@ -1,8 +1,8 @@
 # QuickNote
 
-Flutter App with Firebase
+A flutter app made with Firebase which provides Authentication & Cloud Database
 
-## Getting Started
+### Getting Started
 
 This project is a starting point for a Flutter application.
 
