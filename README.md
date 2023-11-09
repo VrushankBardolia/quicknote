@@ -1,14 +1,16 @@
 # QuickNote
 
 A flutter app made with Firebase which provides Authentication & Cloud Database
-
+---
 ## Table of Contents
 - [Features](#features)
 - [Preview](#Preview)
+- [Changelogs](#changelog)
 - [Dependencies](#Dependencies)
 - [Getting Started](#getting-started)
 - [Contributing](#contributing)
 
+---
 ## Features
 - Create, edit, and delete notes.
 - Real-time synchronization with Firebase.
@@ -16,11 +18,20 @@ A flutter app made with Firebase which provides Authentication & Cloud Database
 - Simple and User-Friendly user interface.
 - Dynamic Theming.
 
+---
 ## Preview
 ![QuickNote Note operations](https://github.com/VrushankBardolia/quicknote/assets/102452902/f776f83d-7898-45ff-8771-cd7397658e56)
 ---
 ![QuickNote Authentication](https://github.com/VrushankBardolia/quicknote/assets/102452902/a92d0ad6-1bb0-40ea-8deb-4cbcb6582b0e)
 
+---
+## Changelog
+### v1.0 (9th November 2023):
+- Authentication with e-mail
+- Add, edit & delete Note
+- Dynamic Theming
+
+---
 ## Dependencies
 - firebase_core
 - google_fonts
@@ -28,6 +39,7 @@ A flutter app made with Firebase which provides Authentication & Cloud Database
 - firebase_auth
 - cloud_firestore
 
+---
 ## Getting Started
 1. Clone the repository
    
@@ -51,7 +63,7 @@ A flutter app made with Firebase which provides Authentication & Cloud Database
    ```
    flutter run
    ```
-
+---
 ## Contributing
 
 We welcome contributions! Feel free to open an issue, submit a pull request, or provide feedback. Follow these steps to contribute:
