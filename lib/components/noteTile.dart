@@ -13,7 +13,7 @@ class NoteTile extends StatelessWidget {
     final theme= Theme.of(context).colorScheme;
     return ListTile(
       title: Text(title,style: const TextStyle(fontSize: 20,fontWeight: FontWeight.w600)),
-      subtitle: Text(date,style: GoogleFonts.jetBrainsMono(fontSize: 15)),
+      subtitle: Text(date,style: GoogleFonts.jetBrainsMono(fontSize: 14)),
       tileColor: theme.secondaryContainer,
       textColor: theme.onSecondaryContainer,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),

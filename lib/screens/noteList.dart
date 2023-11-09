@@ -51,7 +51,7 @@ class _NoteListState extends State<NoteList> {
       body: Padding(
         padding: const EdgeInsets.all(8),
         child: StreamBuilder(
-          stream: FirebaseFirestore.instance.collection("notes").where("uid",isEqualTo: userId?.uid).snapshots(),
+          stream: FirebaseFirestore.instance.collection("notes").orderBy("createdAt",descending: true).snapshots(),
           builder: (context, snapshot) {
             if(snapshot.hasError){
               return const Center(child: Text('Something went wrong'));
@@ -66,21 +66,22 @@ class _NoteListState extends State<NoteList> {
               return ListView.builder(
                   itemCount: snapshot.data!.docs.length,
                   itemBuilder: (context,index){
-                  final note= snapshot.data!.docs[index];
-                  Timestamp t =note["createdAt"];
-                  DateTime dateTime=t.toDate();
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 4),
-                      child: NoteTile(
+                    final note= snapshot.data!.docs[index];
+                    DateTime dateTime = note["createdAt"].toDate();
+                    if(note['uid']==userId!.uid){
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 4),
+                        child: NoteTile(
                           title: note['title'],
                           date: "${dateTime.day}/${dateTime.month}/${dateTime.year}  ${dateTime.hour}:${dateTime.minute}",
                           onTap: (){
                             Get.to(() => const EditNote(),
-                              arguments: {'note':note, 'noteID':note.id}
+                                arguments: {'note':note, 'noteID':note.id}
                             );
                           }
-                      ),
-                    );
+                        ),
+                      );
+                    }else{return Container();}
                   }
               );
             }
