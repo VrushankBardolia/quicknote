@@ -43,3 +43,14 @@ A flutter app made with Firebase which provides Authentication & Cloud Database
    ```
    flutter run
    ```
+
+## Contributing
+
+We welcome contributions! Feel free to open an issue, submit a pull request, or provide feedback. Follow these steps to contribute:
+
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature/new-feature`
+3. Make your changes.
+4. Commit your changes: `git commit -m 'Add new feature'`
+5. Push to the branch: `git push origin feature/new-feature`
+6. Submit a pull request.
