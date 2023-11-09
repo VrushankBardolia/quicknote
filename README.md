@@ -6,9 +6,7 @@ A flutter app made with Firebase which provides Authentication & Cloud Database
 - [Features](#features)
 - [Preview](#Preview)
 - [Getting Started](#getting-started)
-- [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 - Create, edit, and delete notes.
