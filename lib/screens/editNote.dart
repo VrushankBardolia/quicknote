@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:quicknote/components/actionAlert.dart';
 
 import '../components/detailsField.dart';
 import '../components/titleField.dart';
@@ -37,27 +38,21 @@ class _EditNoteState extends State<EditNote> {
     Get.back();
   }
 
-  deleteNote()async{
-    // showDialog(
-    //     context: context,
-    //     builder: (context){
-    //       return AlertDialog(
-    //         title: Text('Delete Note?'),
-    //         content: Text('Note will be deleted permanently'),
-    //         actions: [],
-    //       );
-          // return ActionAlert(
-          //     title: 'Delete Note?',
-          //     content: 'Note will be deleted permanently',
-          //     onTap: () async {
-          //       await FirebaseFirestore.instance.collection("notes").doc(noteID).delete();
-          //       Get.back();
-          //     },
-          //     actionText: 'Delete'
-          // );
-    //     }
-    // );
-    await FirebaseFirestore.instance.collection("notes").doc(noteID).delete();
+  deleteNote(){
+    showDialog(
+        context: context,
+        builder: (context){
+          return ActionAlert(
+              title: 'Delete Note?',
+              content: 'Note will be deleted permanently',
+              onTap: ()async{
+                await FirebaseFirestore.instance.collection("notes").doc(noteID).delete();
+                Get.back();
+              },
+              actionText: 'Delete'
+          );
+        }
+    );
     Get.back();
   }
 

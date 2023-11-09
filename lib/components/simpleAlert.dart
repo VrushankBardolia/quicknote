@@ -9,10 +9,14 @@ class SimpleAlert extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text(title),
-      content: Text(content!),
+      title: Text(title, style: const TextStyle(fontSize: 28)),
+      content: Text(content!, style: const TextStyle(fontSize: 18)),
       actions: [
-        FilledButton(onPressed: (){Get.back();}, child: const Text('Okay'))
+        FilledButton(
+            onPressed: () {
+              Get.back();
+            },
+            child: const Text('Okay'))
       ],
     );
   }

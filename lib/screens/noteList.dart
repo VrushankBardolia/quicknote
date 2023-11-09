@@ -2,9 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quicknote/components/noteTile.dart';
-import 'package:quicknote/screens/addNote.dart';
-import 'package:quicknote/screens/editNote.dart';
+
+import '../components/actionAlert.dart';
+import '../components/noteTile.dart';
+import '../screens/addNote.dart';
+import '../screens/editNote.dart';
 
 class NoteList extends StatefulWidget {
   const NoteList({super.key});
@@ -17,7 +19,20 @@ class _NoteListState extends State<NoteList> {
   User? userId=FirebaseAuth.instance.currentUser;
 
   signOut(){
-    FirebaseAuth.instance.signOut();
+    showDialog(
+        context: context,
+        builder: (context){
+          return ActionAlert(
+              title: 'LogOut',
+              content: 'You will be logged out but your data will not be erased',
+              onTap: (){
+                FirebaseAuth.instance.signOut();
+                Get.back();
+              },
+              actionText: 'Logout'
+          );
+        }
+    );
   }
 
   @override
