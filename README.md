@@ -5,6 +5,7 @@ A flutter app made with Firebase which provides Authentication & Cloud Database
 ## Table of Contents
 - [Features](#features)
 - [Preview](#Preview)
+- [Dependencies](#Dependencies)
 - [Getting Started](#getting-started)
 - [Contributing](#contributing)
 
@@ -17,6 +18,12 @@ A flutter app made with Firebase which provides Authentication & Cloud Database
 
 ## Preview
 
+## Dependencies
+- firebase_core
+- google_fonts
+- get
+- firebase_auth
+- cloud_firestore
 
 ## Getting Started
 1. Clone the repository
