@@ -42,6 +42,12 @@ class _LoginState extends State<Login> {
           password: passwordController.text
       );
       Get.back();
+      final snackBar = SnackBar(
+        content: const Text('Logged In Successfully!',style: TextStyle(fontSize: 16)),
+        backgroundColor: Theme.of(context).colorScheme.secondary,
+        dismissDirection: DismissDirection.down,
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
     } on FirebaseAuthException catch(e){
       Get.back();
       if(e.code=="user-not-found"){

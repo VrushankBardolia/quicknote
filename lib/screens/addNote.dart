@@ -27,6 +27,12 @@ class _AddNoteState extends State<AddNote> {
       "uid":userId?.uid
     });
     Get.back();
+    final snackBar = SnackBar(
+      content: const Text('Note Added!',style: TextStyle(fontSize: 16)),
+      backgroundColor: Theme.of(context).colorScheme.secondary,
+      dismissDirection: DismissDirection.down,
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   @override

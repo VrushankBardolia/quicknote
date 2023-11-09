@@ -50,6 +50,12 @@ class _SignUpState extends State<SignUp> {
         'phone':int.parse(phoneController.text)
       });
       Get.back();
+      final snackBar = SnackBar(
+        content: const Text('Signed In Successfully!',style: TextStyle(fontSize: 16)),
+        backgroundColor: Theme.of(context).colorScheme.secondary,
+        dismissDirection: DismissDirection.down,
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
     on FirebaseAuthException catch(e){
       Get.back();

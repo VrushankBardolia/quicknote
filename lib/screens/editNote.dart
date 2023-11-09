@@ -35,11 +35,23 @@ class _EditNoteState extends State<EditNote> {
           "details":detailsController.text,
         });
     Get.back();
+    final snackBar = SnackBar(
+      content: const Text('Note Edited!',style: TextStyle(fontSize: 16)),
+      backgroundColor: Theme.of(context).colorScheme.secondary,
+      dismissDirection: DismissDirection.down,
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   deleteNote()async{
     await FirebaseFirestore.instance.collection("notes").doc(noteID).delete();
     Get.back();
+    final snackBar = SnackBar(
+      content: const Text('Note Deleted!',style: TextStyle(fontSize: 16)),
+      backgroundColor: Theme.of(context).colorScheme.secondary,
+      dismissDirection: DismissDirection.down,
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   @override

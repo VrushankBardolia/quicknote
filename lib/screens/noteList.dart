@@ -28,6 +28,12 @@ class _NoteListState extends State<NoteList> {
               onTap: (){
                 FirebaseAuth.instance.signOut();
                 Get.back();
+                final snackBar = SnackBar(
+                  content: const Text('User Logged Out!',style: TextStyle(fontSize: 16),),
+                  backgroundColor: Theme.of(context).colorScheme.secondary,
+                  dismissDirection: DismissDirection.down,
+                );
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
               },
               actionText: 'Logout'
           );
