@@ -12,9 +12,9 @@ A flutter app made with Firebase which provides Authentication & Cloud Database
 ## Features
 - Create, edit, and delete notes.
 - Real-time synchronization with Firebase.
-- Simple and intuitive user interface.
-- Dynamic Theming
-- User-Friendly Interface
+- Sign up & Login Authentication.
+- Simple and User-Friendly user interface.
+- Dynamic Theming.
 
 ## Preview
 ![Frame 2](https://github.com/VrushankBardolia/quicknote/assets/102452902/8b28ce55-b03d-4bb8-9b3a-e931f164d7fb)
