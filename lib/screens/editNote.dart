@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:quicknote/components/actionAlert.dart';
 
 import '../components/detailsField.dart';
 import '../components/titleField.dart';
@@ -38,21 +37,8 @@ class _EditNoteState extends State<EditNote> {
     Get.back();
   }
 
-  deleteNote(){
-    showDialog(
-        context: context,
-        builder: (context){
-          return ActionAlert(
-              title: 'Delete Note?',
-              content: 'Note will be deleted permanently',
-              onTap: ()async{
-                await FirebaseFirestore.instance.collection("notes").doc(noteID).delete();
-                Get.back();
-              },
-              actionText: 'Delete'
-          );
-        }
-    );
+  deleteNote()async{
+    await FirebaseFirestore.instance.collection("notes").doc(noteID).delete();
     Get.back();
   }
 
@@ -64,7 +50,10 @@ class _EditNoteState extends State<EditNote> {
       appBar: AppBar(
         centerTitle: true,
         title: Text(time, style: GoogleFonts.jetBrainsMono(color: theme.onBackground,fontSize: 16)),
-        actions: [IconButton(onPressed: deleteNote, icon: const Icon(Icons.delete))],
+        actions: [
+          GestureDetector(onTap:deleteNote,child: const Icon(Icons.delete))
+          // IconButton(onPressed: deleteNote, icon: const Icon(Icons.delete))
+        ],
         iconTheme: IconThemeData(color: theme.onBackground),
       ),
 

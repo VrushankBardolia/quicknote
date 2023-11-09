@@ -20,19 +20,13 @@ class _AddNoteState extends State<AddNote> {
   User? userId=FirebaseAuth.instance.currentUser;
 
   addNote()async{
-    try{
-      await FirebaseFirestore.instance.collection("notes").doc().set({
-        "title":titleController.text,
-        "details":detailsController.text,
-        "createdAt":DateTime.now(),
-        "uid":userId?.uid
-      });
-      print('Note Added successfully!');
-      Get.back();
-    }catch(e){
-      print('ERROR>>>>>>>>>>>>$e');
-    }
-
+    await FirebaseFirestore.instance.collection("notes").doc().set({
+      "title":titleController.text,
+      "details":detailsController.text,
+      "createdAt":DateTime.now(),
+      "uid":userId?.uid
+    });
+    Get.back();
   }
 
   @override
