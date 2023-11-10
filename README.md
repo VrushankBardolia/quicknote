@@ -21,7 +21,7 @@ A flutter app made with Firebase which provides Authentication & Cloud Database
 ---
 ## Preview
 ![QuickNote Note operations](https://github.com/VrushankBardolia/quicknote/assets/102452902/f776f83d-7898-45ff-8771-cd7397658e56)
----
+
 ![QuickNote Authentication](https://github.com/VrushankBardolia/quicknote/assets/102452902/a92d0ad6-1bb0-40ea-8deb-4cbcb6582b0e)
 
 ---
