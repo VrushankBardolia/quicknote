@@ -26,7 +26,7 @@ A flutter app made with Firebase which provides Authentication & Cloud Database
 
 ---
 ## Changelog
-### v1.0 (9th November 2023):
+### v1.0 (12th November 2023):
 - Authentication with e-mail
 - Add, edit & delete Note
 - Dynamic Theming
