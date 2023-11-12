@@ -30,6 +30,7 @@ A flutter app made with Firebase which provides Authentication & Cloud Database
 - Authentication with e-mail
 - Add, edit & delete Note
 - Dynamic Theming
+- Download APK from [Here](https://github.com/VrushankBardolia/quicknote/releases/download/v1.0/QuickNote.v1.0.apk)
 
 ---
 ## Dependencies
