@@ -1,6 +1,8 @@
 # QuickNote
 
+
 A flutter app made with Firebase which provides Authentication & Cloud Database
+
 ---
 ## Table of Contents
 - [Features](#features)
