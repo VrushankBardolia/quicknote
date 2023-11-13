@@ -1,7 +1,6 @@
 # QuickNote
 
-
-A flutter app made with Firebase which provides Authentication & Cloud Database
+QuickNote is a note taking app made in Flutter technology with the backend with Firebase which provides Authentication & Cloud Database 
 
 ---
 ## Table of Contents
