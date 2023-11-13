@@ -52,7 +52,7 @@ QuickNote is a note taking app made in Flutter technology with the backend with 
 2. Navigate to the project directory
 
    ```
-   cd QuickNote
+   cd quicknote
    ```
    
 3. Install dependencies
