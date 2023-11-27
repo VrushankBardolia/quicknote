@@ -9,7 +9,7 @@ class AuthButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FilledButton(
         onPressed: onTap,
-        child: Text(name,style: const TextStyle(fontSize: 18,fontWeight: FontWeight.w600),)
+        child: Text(name,style: const TextStyle(fontSize: 18),)
     );
   }
 }
