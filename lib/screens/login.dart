@@ -2,9 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quicknote/components/authField.dart';
+import 'package:quicknote/screens/resetPassword.dart';
 
 import '../components/authButton.dart';
-import '../components/simpleAlert.dart';
 
 class Login extends StatefulWidget {
   final Function() onTap;
@@ -51,9 +51,9 @@ class _LoginState extends State<Login> {
     } on FirebaseAuthException catch(e){
       Get.back();
       if(e.code=="user-not-found"){
-        const SimpleAlert(title:'No User Found');
+        showAlert('No User Found');
       } else if(e.code=="wrong-password"){
-        const SimpleAlert(title:'Wrong password');
+        showAlert('Wrong password');
       }
     }
   }
@@ -62,7 +62,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context).colorScheme;
     return Scaffold(
-        backgroundColor: theme.background,
+      backgroundColor: theme.background,
       appBar: AppBar(
         backgroundColor: theme.primaryContainer,
         title: Text('Login',
@@ -96,6 +96,17 @@ class _LoginState extends State<Login> {
                   icon: const Icon(Icons.lock_outline_rounded),
                   password: true,
                   textType: TextInputType.visiblePassword
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    TextButton(
+                      onPressed: (){
+                        Get.to(()=>const ResetPassword());
+                      },
+                      child: const Text('Forgot Password?')
+                    )
+                  ],
                 ),
                 const SizedBox(height: 40),
                 AuthButton(onTap:login, name: 'Login'),
