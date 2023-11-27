@@ -25,13 +25,20 @@ QuickNote is a note taking app made in Flutter technology with the backend with 
 
 ![QuickNote Authentication](https://github.com/VrushankBardolia/quicknote/assets/102452902/a92d0ad6-1bb0-40ea-8deb-4cbcb6582b0e)
 
+![QuickNote v1.5](https://github.com/VrushankBardolia/quicknote/assets/102452902/86bc4645-c2e4-412f-b520-4c525f5ef98f)
+
 ---
 ## Changelog
 ### v1.0 (12th November 2023):
-- Authentication with e-mail
-- Add, edit & delete Note
-- Dynamic Theming
-- Download APK from [Here](https://github.com/VrushankBardolia/quicknote/releases/download/v1.0/QuickNote.v1.0.apk)
+- Authentication with e-mail.
+- Add, edit & delete Note.
+- Dynamic Theming.
+- Download APK from [Here](https://github.com/VrushankBardolia/quicknote/releases/download/v1.0/QuickNote.v1.0.apk).
+
+### v1.5 (27th November 2023):
+- You can reset your password via link sent to your email.
+- You can choose the theme among System, Light & Dark.
+- Download APK from [Here](https://github.com/VrushankBardolia/quicknote/releases/download/v1.5/QuickNote.v1.5.apk).
 
 ---
 ## Dependencies
