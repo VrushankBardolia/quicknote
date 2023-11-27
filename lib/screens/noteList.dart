@@ -41,11 +41,54 @@ class _NoteListState extends State<NoteList> {
     );
   }
 
+  changeTheme(){
+    showModalBottomSheet(
+      context: context,
+      builder: (context){
+        return SizedBox(
+          height: 300,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('Change Theme',style: Theme.of(context).textTheme.titleLarge),
+              ),
+              ListTile(
+                title: Text('System'),
+                leading: Icon(Icons.phone_android_rounded),
+                onTap: (){
+                  Get.changeThemeMode(ThemeMode.system);
+                  Get.back();
+                },
+              ),
+              ListTile(
+                title: Text('Light'),
+                leading: Icon(Icons.light_mode_rounded),
+                onTap: (){
+                  Get.changeThemeMode(ThemeMode.light);
+                  Get.back();
+                },
+              ),
+              ListTile(
+                title: Text('Dark'),
+                leading: Icon(Icons.dark_mode_rounded),
+                onTap: (){
+                  Get.changeThemeMode(ThemeMode.dark);
+                  Get.back();
+                },
+              ),
+            ],
+          ),
+        );
+      }
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context).colorScheme;
     return Scaffold(
-        backgroundColor: theme.background,
+      backgroundColor: theme.background,
       appBar: AppBar(
         backgroundColor: theme.primaryContainer,
         centerTitle: true,
@@ -67,6 +110,16 @@ class _NoteListState extends State<NoteList> {
         label: const Text('Add Note', style: TextStyle(fontSize: 16)),
         icon: const Icon(Icons.add_rounded),
         elevation: 0,
+      ),
+
+      floatingActionButtonLocation: FloatingActionButtonLocation.endContained,
+
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          children: [
+            IconButton(onPressed: changeTheme, icon: Icon(Icons.color_lens_rounded))
+          ],
+        ),
       ),
 
       body: Padding(
@@ -109,7 +162,7 @@ class _NoteListState extends State<NoteList> {
             return Container();
           },
         ),
-      )
+      ),
     );
   }
 }
