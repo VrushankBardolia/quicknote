@@ -1,10 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quicknote/components/authField.dart';
-import 'package:quicknote/screens/resetPassword.dart';
 
+import '../components/authField.dart';
 import '../components/authButton.dart';
+import '../screens/resetPassword.dart';
 
 class Login extends StatefulWidget {
   final Function() onTap;

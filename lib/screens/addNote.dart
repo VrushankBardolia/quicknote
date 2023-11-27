@@ -2,8 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:quicknote/components/detailsField.dart';
-import 'package:quicknote/components/titleField.dart';
+
+import '../components/detailsField.dart';
+import '../components/titleField.dart';
 
 class AddNote extends StatefulWidget {
   const AddNote({super.key});
