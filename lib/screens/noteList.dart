@@ -46,7 +46,7 @@ class _NoteListState extends State<NoteList> {
       context: context,
       builder: (context){
         return SizedBox(
-          height: 300,
+          height: 230,
           child: Column(
             children: [
               Padding(
