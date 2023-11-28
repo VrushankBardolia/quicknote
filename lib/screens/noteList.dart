@@ -54,24 +54,24 @@ class _NoteListState extends State<NoteList> {
                 child: Text('Change Theme',style: Theme.of(context).textTheme.titleLarge),
               ),
               ListTile(
-                title: Text('System'),
-                leading: Icon(Icons.phone_android_rounded),
+                title: const Text('System'),
+                leading: const Icon(Icons.phone_android_rounded),
                 onTap: (){
                   Get.changeThemeMode(ThemeMode.system);
                   Get.back();
                 },
               ),
               ListTile(
-                title: Text('Light'),
-                leading: Icon(Icons.light_mode_rounded),
+                title: const Text('Light'),
+                leading: const Icon(Icons.light_mode_rounded),
                 onTap: (){
                   Get.changeThemeMode(ThemeMode.light);
                   Get.back();
                 },
               ),
               ListTile(
-                title: Text('Dark'),
-                leading: Icon(Icons.dark_mode_rounded),
+                title: const Text('Dark'),
+                leading: const Icon(Icons.dark_mode_rounded),
                 onTap: (){
                   Get.changeThemeMode(ThemeMode.dark);
                   Get.back();
@@ -117,7 +117,7 @@ class _NoteListState extends State<NoteList> {
       bottomNavigationBar: BottomAppBar(
         child: Row(
           children: [
-            IconButton(onPressed: changeTheme, icon: Icon(Icons.color_lens_rounded))
+            IconButton(onPressed: changeTheme, icon: const Icon(Icons.color_lens_rounded))
           ],
         ),
       ),
